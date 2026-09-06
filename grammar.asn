@@ -1,0 +1,65 @@
+;; Package Grammar & Exported Symbol Registry (ASN)
+;; @genseam/asl-quantum
+(:grammar
+  :package @genseam/asl-quantum
+  :version "0.1.0"
+  :tokens-baseline 1
+  :symbols [
+    ;; 1-Token Symbols (Baseline)
+    (:sym :name "h" :kind :fn :tokens 1)
+    (:sym :name "x" :kind :fn :tokens 1)
+    (:sym :name "z" :kind :fn :tokens 1)
+    (:sym :name "cx" :kind :fn :tokens 1)
+    (:sym :name "msr" :kind :fn :tokens 1)
+    (:sym :name "GateKind" :kind :type :tokens 1)
+    (:sym :name "QuantumOp" :kind :type :tokens 1)
+    (:sym :name "QuantumCircuit" :kind :type :tokens 1)
+    (:sym :name "ComplexNum" :kind :type :tokens 1)
+    (:sym :name "QuantumState" :kind :type :tokens 1)
+
+    ;; 2-Token Symbols (with :rationale)
+    (:sym :name "make-h" :kind :fn :tokens 2
+          :rationale "Constructs Hadamard gate quantum operation")
+    (:sym :name "make-x" :kind :fn :tokens 2
+          :rationale "Constructs Pauli-X bit-flip gate quantum operation")
+    (:sym :name "make-z" :kind :fn :tokens 2
+          :rationale "Constructs Pauli-Z phase-flip gate quantum operation")
+    (:sym :name "make-cx" :kind :fn :tokens 2
+          :rationale "Constructs Controlled-NOT 2-qubit entangling operation")
+    (:sym :name "make-msr" :kind :fn :tokens 2
+          :rationale "Constructs computational basis measurement operation")
+    (:sym :name "make-circuit" :kind :fn :tokens 2
+          :rationale "Initializes quantum circuit with qubit and classical bit registers")
+    (:sym :name "add-op" :kind :fn :tokens 2
+          :rationale "Appends quantum gate operation to execution circuit")
+    (:sym :name "emit-openqasm" :kind :fn :tokens 2
+          :rationale "Serializes quantum circuit into standard OpenQASM 2.0 text format")
+    (:sym :name "apply-h" :kind :fn :tokens 2
+          :rationale "Applies Hadamard unitary transformation to state vector")
+    (:sym :name "apply-cx" :kind :fn :tokens 2
+          :rationale "Applies Controlled-NOT unitary transformation to state vector")
+    (:sym :name "state-prob" :kind :fn :tokens 2
+          :rationale "Calculates measurement probability for target computational basis state")
+    (:sym :name "run-tests" :kind :fn :tokens 2
+          :rationale "Executes unit test suite")
+
+    ;; >2 Token Symbols (with :rationale)
+    (:sym :name "format-gate-qasm" :kind :fn :tokens 3
+          :rationale "Formats individual quantum gate into OpenQASM instruction syntax")
+    (:sym :name "make-zero-state" :kind :fn :tokens 3
+          :rationale "Constructs initial |00...0> ground state statevector")
+    (:sym :name "build-bell-pair" :kind :fn :tokens 3
+          :rationale "Constructs standard 2-qubit maximally entangled Bell EPR circuit")
+    (:sym :name "build-ghz-state" :kind :fn :tokens 3
+          :rationale "Constructs 3-qubit Greenberger-Horne-Zeilinger entangled state circuit")
+    (:sym :name "test-ground-state-prob" :kind :fn :tokens 4
+          :rationale "Verifies ground state normalization probability")
+    (:sym :name "test-bell-state-entanglement" :kind :fn :tokens 4
+          :rationale "Verifies equal superposition probability in Bell state")
+    (:sym :name "test-bell-circuit" :kind :fn :tokens 3
+          :rationale "Verifies Bell pair circuit gate sequence")
+    (:sym :name "test-ghz-circuit" :kind :fn :tokens 3
+          :rationale "Verifies GHZ state circuit gate sequence")
+    (:sym :name "test-openqasm-header" :kind :fn :tokens 3
+          :rationale "Verifies OpenQASM header output compliance")
+  ])
