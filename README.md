@@ -1,8 +1,8 @@
 # @genseam/asl-quantum
 
-> [!NOTE]
-> **Status: In Development (Experimental / Future Roadmap)**
-> This package represents an exploratory research prototype for quantum circuit synthesis, quantum gate simulation, and OpenQASM 3.0 compilation. It is an experimental future research sketch and not yet part of the core stable production toolchain.
+> [!IMPORTANT]
+> **Status: Conceptual Schema (`conceptual-schema`)**
+> This package defines formal AgentScript schemas and AST data structures for quantum circuit representations, gate operations, and OpenQASM 3.0 transpilation. It is a **conceptual/theoretical interface specification**, not a live quantum hardware driver or cloud QPU connector. All state-vector simulations and gate operations are formal algorithmic representations without physical quantum hardware grounding.
 
 ## Overview
 - Quantum circuit AST representation
