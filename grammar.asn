@@ -1,7 +1,7 @@
 ;; Package Grammar & Exported Symbol Registry (ASN)
-;; @genseam/asl-quantum
+;; asl-quantum
 (:grammar
-  :package @genseam/asl-quantum
+  :package asl-quantum
   :version "0.1.0"
   :tokens-baseline 1
   :symbols [
