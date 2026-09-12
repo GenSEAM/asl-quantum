@@ -28,6 +28,5 @@
 
 (df run-tests [] -> Bool
   :d "Runs all quantum simulation unit tests."
-  (let [(_t1 (test-ground-state-prob))
-        (_t2 (test-bell-state-entanglement))]
-    true))
+  (let [(t1 (test-ground-state-prob))
+        (t2 (test-bell-state-entanglement))] (and t1 t2)))

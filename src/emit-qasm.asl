@@ -18,5 +18,6 @@
   :d "Synthesizes complete OpenQASM 3.0 program with headers, registers, and gate body."
   (let [(header "OPENQASM 3.0;\ninclude \"stdgates.inc\";\n")
         (qreg (str "qubit[" (string-from-int64 (.-num-qubits c)) "] q;\n"))
-        (creg (str "bit[" (string-from-int64 (.-num-clbits c)) "] c;\n"))]
-    (str header qreg creg)))
+        (creg (str "bit[" (string-from-int64 (.-num-clbits c)) "] c;\n"))
+        (ops (fold (fn [(acc Str) (op g/QuantumOp)] (str acc (format-gate-qasm op) "\n")) "" (.-ops c)))]
+    (str header qreg creg ops)))

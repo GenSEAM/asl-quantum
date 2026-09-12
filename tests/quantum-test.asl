@@ -22,11 +22,16 @@
     true))
 
 (df test-openqasm-header [] -> Bool
-  :d "Verifies synthesized OpenQASM contains version header and register declarations."
+  :d "Verifies synthesized OpenQASM contains version header, registers, and gate operations."
   (let [(bell (q/build-bell-pair))
         (code (qasm/emit-openqasm bell))]
     (assert (string-contains? code "OPENQASM 3.0;") "OpenQASM must contain OPENQASM 3.0;")
     (assert (string-contains? code "qubit[2] q;") "OpenQASM must declare qubit[2] q;")
+    (assert (string-contains? code "bit[2] c;") "OpenQASM must declare bit[2] c;")
+    (assert (string-contains? code "h q[0];") "OpenQASM must contain Hadamard gate")
+    (assert (string-contains? code "cx q[0], q[1];") "OpenQASM must contain CNOT gate")
+    (assert (string-contains? code "c[0] = measure q[0];") "OpenQASM must contain measure q0")
+    (assert (string-contains? code "c[1] = measure q[1];") "OpenQASM must contain measure q1")
     true))
 
 (df run-tests [] -> Bool
